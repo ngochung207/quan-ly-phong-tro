@@ -20,14 +20,24 @@ public class Hotel {
 
     public void deleteCustomer(String id) {
         // Xóa khách theo số chứng minh thư.
-        database.remove(this.getID(id));
+
+        // TODO Them phan kiem tra neu khong co khach hang co id tuong ung
+        if (this.getID(id) != -1) {
+            database.remove(this.getID(id));
+        } else {
+            System.out.println("Không có ID: " + id + " trong hệ thống.");
+        }
     }
 
     public double getPay(String id) {
         // Lấy thông tin thanh toán của người qua ID
         Customer element = getCustomerById(id);
-        double result = element.getCountDays() * getPrice(element.getType());
-        return result;
+        // TODO Them phan kiem tra neu khong co khach hang co id tuong ung
+        if (element != null) {
+            return element.getCountDays() * getPrice(element.getType());
+        } else {
+            throw new EmptyStackException();
+        }
     }
 
     public String toString(String id) {
