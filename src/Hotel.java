@@ -18,7 +18,6 @@ public class Hotel {
         System.out.println("---> " + element.getId() + " - " + element.getName() + " - " + " Thêm mới thành công <---");
     }
 
-
     public void deleteCustomer(String id) {
         // Xóa khách theo số chứng minh thư.
         database.remove(this.getID(id));
@@ -65,21 +64,21 @@ public class Hotel {
         return null;
     }
 
-    public Double getPrice(String type){
+    public Double getPrice(String type) {
         // Lấy ra giá phòng dựa vào loại phòng.
         return listPrice.getPrice(type);
     }
-    public int getSize(){
+
+    public int getSize() {
         // Lấy ra số phòng đang được đặt
         return database.size();
     }
 
-    public Customer getElement(int index){
+    public Customer getElement(int index) {
         // Chỉ đến phòng dựa vào index
-        if(this.getSize() < index){
+        if (this.getSize() < index) {
             return null;
         }
         return database.get(index);
     }
-
 }

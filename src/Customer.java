@@ -2,7 +2,7 @@ public class Customer extends Person {
     private int countDays;
     private String type;
 
-    public Customer(){
+    public Customer() {
     }
 
     public Customer(String name, String birth, String id, int days, String type) {
