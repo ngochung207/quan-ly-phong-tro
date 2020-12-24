@@ -1,3 +1,4 @@
+// Cài đặt giá trị của tường loại phòng.
 public class ListPrice {
     private SetupPrice priceList = new SetupPrice();
     public ListPrice(){

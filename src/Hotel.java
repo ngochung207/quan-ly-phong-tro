@@ -2,11 +2,14 @@ import java.util.ArrayList;
 import java.util.EmptyStackException;
 
 public class Hotel {
+    // Khai báo.
     private ArrayList<Customer> database;
-    private ListPrice listPrice = new ListPrice();
+    private ListPrice listPrice;
 
     public Hotel() {
+        // Khởi tạo.
         database = new ArrayList<>();
+        listPrice = new ListPrice();
     }
 
     public void addCustomer(Customer element) {
@@ -63,13 +66,16 @@ public class Hotel {
     }
 
     public Double getPrice(String type){
+        // Lấy ra giá phòng dựa vào loại phòng.
         return listPrice.getPrice(type);
     }
     public int getSize(){
+        // Lấy ra số phòng đang được đặt
         return database.size();
     }
 
     public Customer getElement(int index){
+        // Chỉ đến phòng dựa vào index
         if(this.getSize() < index){
             return null;
         }

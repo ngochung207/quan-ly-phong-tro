@@ -2,9 +2,11 @@ import java.time.ZoneId;
 import java.util.Scanner;
 
 public class Main {
+    // Khởi tạo một nhà trọ có tên là ZoZo
     static Hotel ZoZo = new Hotel();
     public static void main(String[] args) {
         Integer chose = 0;
+        String id = "";
         Scanner sc = new Scanner(System.in);
         do {
             showMenu();
@@ -14,13 +16,17 @@ public class Main {
                     addNewCustomers();
                     break;
                 case 2:
-                    showInfoCustomersByID();
+                    System.out.println("Nhập vào số CMT của khách: ");
+                    id = sc.nextLine();
+                    showInfoCustomersByID(id);
                     break;
                 case 3:
                     showInfoAllCustomers();
                     break;
                 case 4:
-                    deleteInfoCustomers();
+                    System.out.println("Nhập vào số CMT của khách: ");
+                    id = sc.nextLine();
+                    deleteInfoCustomers(id);
                     break;
                 case 5:
                     payMent();
@@ -58,13 +64,27 @@ public class Main {
         ZoZo.addCustomer(newCustomer);
         sc.nextLine();
     }
-    static void showInfoCustomersByID(){
+
+    static void deleteInfoCustomers(String id){
+        showInfoCustomersByID(id);
+        System.out.println("-----");
+        ZoZo.deleteCustomer(id);
+        System.out.println("Delete is Done");
+    }
+
+    static void payMent(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Nhập vào số CMT của khách: ");
         String ID = sc.nextLine();
-        System.out.println(ZoZo.toString(ID));
+        System.out.println("Số tiền phải thanh toán: " + ZoZo.getPay(ID));
+    }
+
+    static void showInfoCustomersByID(String id){
+        // Lấy ra thông tin của một khách trọ dựa vào thông tin.
+        System.out.println(ZoZo.toString(id));
     }
     static void showInfoAllCustomers(){
+        // Lấy ra toàn bộ thông tin của khách trọ.
             System.out.printf("\n%-20s%-20s%-20s%-20s%-20s%-20s"
                     , "Tên khách thuê"
                     , "Ngày sinh"
@@ -85,13 +105,5 @@ public class Main {
 
         System.out.println("");
     }
-    static void deleteInfoCustomers(){
 
-    }
-    static void payMent(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Nhập vào số CMT của khách: ");
-        String ID = sc.nextLine();
-        System.out.println("Số tiền phải thanh toán: " + ZoZo.getPay(ID));
-    }
 }

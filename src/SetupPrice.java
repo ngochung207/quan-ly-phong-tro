@@ -1,6 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
-
+// Chức năng thiết lập giá phòng
 public class SetupPrice {
     private Map<String, Double> priceList;
 
